@@ -8,23 +8,22 @@ import Link from "next/link";
 export default function DownloadPage() {
   const [downloading, setDownloading] = useState(false);
 
-  const handleDownload = () => {
-    // Set downloading state for UI feedback
-    setDownloading(true);
+const handleDownload = () => {
+  setDownloading(true);
 
-    // Simulate download process
-    setTimeout(() => {
-      setDownloading(false);
-    }, 2000);
+  setTimeout(() => {
+    setDownloading(false);
+  }, 2000);
 
-    // Trigger actual file download
-    const link = document.createElement("a");
-    link.href = "/app-download/food-delivery-app.apk"; // Path to your APK in the public folder
-    link.download = "food-delivery-app.apk";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  // Directly link to the file in the public folder
+  const link = document.createElement("a");
+  link.href = "/app-download/afropark-eats.apk"; // Public files are accessible at root
+  link.download = "afropark-eats.apk";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-300 to-blue-100 flex flex-col items-center">
